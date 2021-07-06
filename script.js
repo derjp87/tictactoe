@@ -3,12 +3,16 @@ let fields = [];
 let currentShape = 'cross';
 
 function fillShape(id) {
-    if(currentShape == 'cross') { //Wenn currentShape aktuell cross ist
-        currentShape = 'circle';  //ändere es zu circle
-    } else {                      //ansonsten
-        currentShape = 'cross';   //ändere es zu cross
+    if(currentShape == 'cross') {                                                   //Wenn currentShape aktuell cross ist
+        currentShape = 'circle';                                                    //ändere es zu circle
+        document.getElementById('player-2').classList.remove('player-inactive');
+        document.getElementById('player-1').classList.add('player-inactive');
+    } else {                                                                        //ansonsten
+        currentShape = 'cross';                                                     //ändere es zu cross
+        document.getElementById('player-1').classList.remove('player-inactive');
+        document.getElementById('player-2').classList.add('player-inactive');
     }
-    fields[id] = currentShape;    //setze für das Feld mit der entsprechendenen ID im Array den Wert = currentShape
+    fields[id] = currentShape;                                                      //setze für das Feld mit der entsprechendenen ID im Array den Wert = currentShape
     console.log(fields);
     draw();
     checkForWin();
